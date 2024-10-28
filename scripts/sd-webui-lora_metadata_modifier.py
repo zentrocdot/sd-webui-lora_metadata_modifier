@@ -234,18 +234,16 @@ def on_ui_tabs():
                 src_path = _lora_dict.get(src)
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
-
                 json_object = json.loads(metadata)
-                
+                print(json_object)
+                # Workaround start for a Rust error                
                 key1 = "ss_tag_frequency"
                 temp_value = json_object.get(key1)
                 temp_value = json.dumps(temp_value)
                 json_object.update({key1:temp_value})
-
-                #json_object = json.loads(metadata)
-
+                print(json_object)
+                # Workaround end for a Rust error   
                 retcode = write_metadata(dst_path, src_path, json_object)
-                #retcode = write_metadata(dst_path, src_path, temp_value)
                 if retcode == 0:
                     gr.Info("Operation successfully completed!")
                 else:
