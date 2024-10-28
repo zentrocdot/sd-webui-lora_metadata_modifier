@@ -185,14 +185,14 @@ def write_metadata(old_file_name: str, new_file_name: str, metadata: dict):
 def change_tag(old_filename: str, new_filename: str, value: str) -> None:
     '''Main script function.'''
     # Set the keys.
-    key0 = "ss_output_name"
-    key1 = "ss_tag_frequency"
+    #key0 = "ss_output_name"
+    #key1 = "ss_tag_frequency"
     # Read the metadata from a given file.
     metadata = read_metadata(old_filename)
     # Update one entry in the metadata.
-    metadata.update({key0: value})
+    #metadata.update({key0: value})
     # Get the value for key ss_tag_frequency.
-    temp_value = metadata.get(key1)
+    #temp_value = metadata.get(key1)
     temp_value = json.dumps(temp_value)
     # Update one entry in the metadata.
     metadata.update({key1:temp_value})
