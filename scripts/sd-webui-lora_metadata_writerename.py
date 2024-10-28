@@ -252,21 +252,26 @@ def on_ui_tabs():
                              outputs=[filename])
         # Create a new row.
         with gr.Row():
-            json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
+            json_output = gr.Code(lines=10, label="Metadata as JSON", language="json", interactive=True)
             input_file.input(
                 fn=read_lora_metadata,
                 inputs=[input_file],
                 outputs=[json_output]
             )
+            #update_button.click(
+            #    get_file_tag_name,
+            #    inputs=[input_file],
+            #    outputs=[filename]
+            #)
+            #update_button.click(
+            #    read_lora_metadata,
+            #    inputs=[input_file],
+            #    outputs=[json_output]
+            #)
             update_button.click(
-                get_file_tag_name,
-                inputs=[input_file],
-                outputs=[filename]
-            )
-            update_button.click(
-                read_lora_metadata,
-                inputs=[input_file],
-                outputs=[json_output]
+                [get_file_tag_name, read_lora_metadata]
+                inputs=[input_file, input_file],
+                outputs=[filename, json_output]
             )
     return [(ui_component, "Write LoRA Metadata", "write_lora_metadata_tab")]
 
