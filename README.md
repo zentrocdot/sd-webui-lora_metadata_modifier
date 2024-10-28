@@ -29,5 +29,10 @@
 
 # References
 
-<p align="justify">to-do ...</p>
+[1] https://github.com/AUTOMATIC1111/stable-diffusion-webui
+
+[2] https://github.com/AUTOMATIC1111/stable-diffusion-webui-extensions
+
+[3] https://www.gradio.app/docs/gradio/interface
+
 
