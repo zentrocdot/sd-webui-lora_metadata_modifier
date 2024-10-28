@@ -248,7 +248,7 @@ def on_ui_tabs():
             update_button = gr.Button(value="Update")
             input_file.input(fn=get_file_tag_name,
                              inputs=[input_file],
-                             outputs=[filename, outputname])
+                             outputs=[filename])
         # Create a new row.
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
