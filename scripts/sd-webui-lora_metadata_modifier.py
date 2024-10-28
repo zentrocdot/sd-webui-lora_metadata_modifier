@@ -99,6 +99,9 @@ def read_header_data(file: BinaryIO) -> dict:
 def read_metadata(file_name: str) -> dict:
     """Read file to extract the metadata.
 
+    Used External Function:
+        read_header_data()    
+
     Parameter:
         file_name: name of the file to be read
         return:    metadata as dict from json
@@ -187,10 +190,9 @@ def write_metadata(old_file_name: str, new_file_name: str, metadata: dict) -> in
 def on_ui_tabs():
     '''Method on_ui_tabs()'''
     def get_file_name(fn):
-        tag = "ss_output_name"
         basename = Path(fn).stem
-        fp = _lora_dict.get(fn)
-        metadata = read_metadata(fp)
+        #fp = _lora_dict.get(fn)
+        #metadata = read_metadata(fp)
         return basename
     # Create a new block.
     with gr.Blocks(analytics_enabled=False) as ui_component:
@@ -243,10 +245,10 @@ def on_ui_tabs():
                 outputs=[]
             )
             update_button.click(
-                get_file_name, inputs=[input_file], outputs=[filename]
+                fn=get_file_name, inputs=[input_file], outputs=[filename]
             )
             update_button.click(
-                read_lora_metadata, inputs=[input_file], outputs=[json_output]
+                fn=read_lora_metadata, inputs=[input_file], outputs=[json_output]
             )
     return [(ui_component, "Write LoRA Metadata", "write_lora_metadata_tab")]
 
