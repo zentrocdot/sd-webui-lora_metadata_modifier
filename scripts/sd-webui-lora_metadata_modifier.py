@@ -230,22 +230,20 @@ def on_ui_tabs():
                 outputs=[json_output]
             )
             def adjust_metadata(src, metadata):
+                key1 = "ss_tag_frequency"
                 tag = Path(src).stem
                 src_path = _lora_dict.get(src)
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
-                json_metadata = json.loads(metadata)
-                metadata = json.dumps(json_metadata)
                 print(metadata, "\n")
                 json_object = json.loads(metadata)
                 print(json_object, "\n")
                 # Workaround start for a Rust error.                
-                #key1 = "ss_tag_frequency"
-                #temp_value = json_object.get(key1)
-                #temp_value = json.dumps(temp_value)
-                #print(temp_value, "\n")
-                #json_object.update({key1:temp_value})
-                #print(json_object, "\n")
+                temp_value = json_object.get(key1)
+                temp_value = json.dumps(temp_value)
+                print(temp_value, "\n")
+                json_object.update({key1:temp_value})
+                print(json_object, "\n")
                 # Workaround end for a Rust error.   
                 retcode = write_metadata(dst_path, src_path, json_object)
                 if retcode == 0:
