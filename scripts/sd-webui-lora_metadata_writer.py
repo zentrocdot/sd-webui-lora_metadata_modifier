@@ -185,12 +185,9 @@ def write_metadata(old_file_name: str, new_file_name: str, metadata: dict):
 def change_metadata(old_filename: str, new_filename: str, value: str) -> None:
     '''Main script function.'''
     # Set the keys.
-    #key0 = "ss_output_name"
     #key1 = "ss_tag_frequency"
     # Read the metadata from a given file.
     metadata = read_metadata(old_filename)
-    # Update one entry in the metadata.
-    #metadata.update({key0: value})
     # Get the value for key ss_tag_frequency.
     #temp_value = metadata.get(key1)
     temp_value = json.dumps(temp_value)
@@ -255,6 +252,18 @@ def on_ui_tabs():
                 fn=read_lora_metadata,
                 inputs=[input_file],
                 outputs=[json_output]
+            )
+            def adjust_metadata(src, metadata):
+                tag = Path(src).stem
+                src_path = _lora_dict.get(src)
+                dst_path = ''.join([src_path, ".bak"])
+                shutil.copyfile(src_path, dst_path)
+                change_tag(dst_path, src_path, tag)
+                return []
+            update_button.click(
+                adjust_metadata,
+                inputs=[input_file, json_output],
+                outputs=[]
             )
             update_button.click(
                 get_file_tag_name,
