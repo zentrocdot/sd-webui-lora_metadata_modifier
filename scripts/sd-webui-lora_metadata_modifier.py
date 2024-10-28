@@ -244,12 +244,19 @@ def on_ui_tabs():
                 inputs=[input_file, json_output],
                 outputs=[]
             )
+            # Multiple functions as callables are not allowed!
+            # This way we need the event handler twice.
             update_button.click(
-                fn=get_file_name, inputs=[input_file], outputs=[filename]
+                fn=get_file_name,
+                inputs=[input_file],
+                outputs=[filename]
             )
             update_button.click(
-                fn=read_lora_metadata, inputs=[input_file], outputs=[json_output]
+                fn=read_lora_metadata,
+                inputs=[input_file],
+                outputs=[json_output]
             )
+    # Return UI data.
     return [(ui_component, "Write LoRA Metadata", "write_lora_metadata_tab")]
 
 # Invoke a callback function.
