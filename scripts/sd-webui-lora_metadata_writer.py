@@ -179,10 +179,10 @@ def write_metadata(old_file_name: str, new_file_name: str, metadata: dict):
     # Return the return code.
     return return_code
 
-# ---------------------
-# Function change_tag()
-# ---------------------
-def change_tag(old_filename: str, new_filename: str, value: str) -> None:
+# --------------------------
+# Function change_metadata()
+# --------------------------
+def change_metadata(old_filename: str, new_filename: str, value: str) -> None:
     '''Main script function.'''
     # Set the keys.
     #key0 = "ss_output_name"
@@ -258,20 +258,15 @@ def on_ui_tabs():
                 inputs=[input_file],
                 outputs=[json_output]
             )
-            #update_button.click(
-            #    get_file_tag_name,
-            #    inputs=[input_file],
-            #    outputs=[filename]
-            #)
-            #update_button.click(
-            #    read_lora_metadata,
-            #    inputs=[input_file],
-            #    outputs=[json_output]
-            #)
             update_button.click(
-                [get_file_tag_name, read_lora_metadata],
-                inputs=[input_file, input_file],
-                outputs=[filename, json_output]
+                get_file_tag_name,
+                inputs=input_file,
+                outputs=[filename]
+            )
+            update_button.click(
+                read_lora_metadata,
+                inputs=[input_file],
+                outputs=[json_output]
             )
     return [(ui_component, "Write LoRA Metadata", "write_lora_metadata_tab")]
 
