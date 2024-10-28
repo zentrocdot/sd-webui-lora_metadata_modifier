@@ -231,8 +231,7 @@ def on_ui_tabs():
                                   "metadata_utils_refresh_1")
             sort_fw_bw = gr.Radio(choices=["Forward", "Backward"], value="Forward",
                                   label="Sorting Direction", info="",
-                                  scale=2, min_width=50)
-            
+                                  scale=2, min_width=50)            
             def change_sort_fw_bw(rb_state):
                 global _SortDir
                 _SortDir = False
@@ -246,21 +245,10 @@ def on_ui_tabs():
             filename = gr.Textbox(value="", lines=1, render=True,
                                   interactive=False, inputs=None, info="",
                                   label="Selected filename without extension")
-            #outputname = gr.Textbox(value="", lines=1, render=True,
-            #                        interactive=False, inputs=None, info="",
-            #                        label="Filename without extension from metadata")
             update_button = gr.Button(value="Update")
             input_file.input(fn=get_file_tag_name,
                              inputs=[input_file],
                              outputs=[filename, outputname])
-            #def adjust_safetensors(src):
-            #    tag = Path(src).stem
-            #    src_path = _lora_dict.get(src)
-            #    dst_path = ''.join([src_path, ".bak"])
-            #    shutil.copyfile(src_path, dst_path)
-            #    change_tag(dst_path, src_path, tag)
-            #    return []
-            #adjust_button.click(adjust_safetensors, inputs=[input_file], outputs=[])
         # Create a new row.
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
