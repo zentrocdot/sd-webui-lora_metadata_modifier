@@ -235,7 +235,11 @@ def on_ui_tabs():
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
                 json_object = json.loads(metadata)
-                write_metadata(dst_path, src_path, json_object)
+                retcode = write_metadata(dst_path, src_path, json_object)
+                if retcode == 0:
+                    gr.Info("Operation successfully completed!")
+                else:
+                    gr.Warning("A serious error has occurred!")
                 return []
             write_button.click(
                 adjust_metadata,
