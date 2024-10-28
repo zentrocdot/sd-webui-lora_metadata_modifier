@@ -234,11 +234,7 @@ def on_ui_tabs():
                 src_path = _lora_dict.get(src)
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
-                #print(type(metadata))    
-                #print(metadata)
                 json_object = json.loads(metadata)
-                #print(type(json_object))
-                #print(json_object)
                 write_metadata(dst_path, src_path, json_object)
                 return []
             write_button.click(
@@ -246,20 +242,11 @@ def on_ui_tabs():
                 inputs=[input_file, json_output],
                 outputs=[]
             )
-            #update_button.click(
-            #    get_file_tag_name,
-            #    inputs=[input_file],
-            #    outputs=[filename]
-            #)
-            #update_button.click(
-            #    read_lora_metadata,
-            #    inputs=[input_file],
-            #    outputs=[json_output]
-            #)
-            update_button.click( 
-                (get_file_tag_name, read_lora_metadata),
-                inputs=[input_file, input_file],
-                outputs=[filename, json_output]
+            update_button.click(
+                get_file_tag_name, inputs=[input_file], outputs=[filename]
+            )
+            update_button.click(
+                read_lora_metadata, inputs=[input_file], outputs=[json_output]
             )
     return [(ui_component, "Write LoRA Metadata", "write_lora_metadata_tab")]
 
