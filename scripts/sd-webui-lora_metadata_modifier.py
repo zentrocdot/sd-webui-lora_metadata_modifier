@@ -242,7 +242,7 @@ def on_ui_tabs():
                     gr.Warning("A serious error has occurred!")
                 return []
             write_button.click(
-                adjust_metadata,
+                fn=adjust_metadata,
                 inputs=[input_file, json_output],
                 outputs=[]
             )
