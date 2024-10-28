@@ -4,6 +4,8 @@
 Extension for AUTOMATIC1111.
 
 Version 0.0.0.1
+
+Use the Extension on your own risk
 '''
 # pylint: disable=invalid-name
 # pylint: disable=import-error
@@ -91,9 +93,9 @@ def read_header_data(file: BinaryIO) -> dict:
     # Return the JSON data as dict.
     return json_data
 
-# ---------------------------
-# Function read_header_data()
-# ---------------------------
+# ------------------------
+# Function read_metadata()
+# ------------------------
 def read_metadata(file_name: str) -> dict:
     """Read file to extract the metadata.
 
@@ -244,15 +246,20 @@ def on_ui_tabs():
                 inputs=[input_file, json_output],
                 outputs=[]
             )
-            update_button.click(
-                get_file_tag_name,
-                inputs=[input_file],
-                outputs=[filename]
-            )
-            update_button.click(
-                read_lora_metadata,
-                inputs=[input_file],
-                outputs=[json_output]
+            #update_button.click(
+            #    get_file_tag_name,
+            #    inputs=[input_file],
+            #    outputs=[filename]
+            #)
+            #update_button.click(
+            #    read_lora_metadata,
+            #    inputs=[input_file],
+            #    outputs=[json_output]
+            #)
+            update_button.click( 
+                [get_file_tag_name,read_lora_metadata],
+                inputs=[input_file, input_file],
+                outputs=[filename, json_output]
             )
     return [(ui_component, "Write LoRA Metadata", "write_lora_metadata_tab")]
 
