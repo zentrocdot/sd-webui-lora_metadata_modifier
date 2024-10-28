@@ -235,9 +235,10 @@ def on_ui_tabs():
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
                 json_object = json.loads(metadata)
-                temp_value = json.dumps(json_object)
-                #retcode = write_metadata(dst_path, src_path, json_object)
-                retcode = write_metadata(dst_path, src_path, temp_value)
+                temp_value = json.dumps(temp_value)
+                json_object = json.loads(metadata)
+                retcode = write_metadata(dst_path, src_path, json_object)
+                #retcode = write_metadata(dst_path, src_path, temp_value)
                 if retcode == 0:
                     gr.Info("Operation successfully completed!")
                 else:
