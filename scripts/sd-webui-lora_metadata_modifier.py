@@ -234,9 +234,15 @@ def on_ui_tabs():
                 src_path = _lora_dict.get(src)
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
+                
+                key1 = "ss_tag_frequency"
+                temp_value = metadata.get(key1)
+                temp_value = json.dumps(temp_value)
+                metadata.update({key1:temp_value})
+
                 json_object = json.loads(metadata)
-                temp_value = json.dumps(json_object)
-                json_object = json.loads( temp_value)
+                #temp_value = json.dumps(json_object)
+                #json_object = json.loads( temp_value)
                 retcode = write_metadata(dst_path, src_path, json_object)
                 #retcode = write_metadata(dst_path, src_path, temp_value)
                 if retcode == 0:
