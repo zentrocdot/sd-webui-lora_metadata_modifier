@@ -179,35 +179,6 @@ def write_metadata(old_file_name: str, new_file_name: str, metadata: dict):
     # Return the return code.
     return return_code
 
-'''
-# --------------------------
-# Function change_metadata()
-# --------------------------
-def change_metadata(old_filename: str, new_filename: str, value: str) -> None:
-    '''Main script function.'''
-    # Set the keys.
-    #key1 = "ss_tag_frequency"
-    # Read the metadata from a given file.
-    metadata = read_metadata(old_filename)
-    # Get the value for key ss_tag_frequency.
-    #temp_value = metadata.get(key1)
-    temp_value = json.dumps(temp_value)
-    # Update one entry in the metadata.
-    metadata.update({key1:temp_value})
-    # Write the new file.
-    return_code = write_metadata(old_filename, new_filename, metadata)
-    if int(return_code) == 1:
-        gr.Warning("A serious error has occurred!")
-    else:
-        gr.Info("Operation successfully completed!")
-        # Print control data into the terminal window.
-        print("New metadata:", metadata)
-        print("Old size:", os.path.getsize(old_filename))
-        print("Old size:", os.path.getsize(new_filename))
-    # Return None
-    return None
-'''
-
 # +++++++++++++++++++++
 # Function on_ui_tabs()
 # +++++++++++++++++++++
