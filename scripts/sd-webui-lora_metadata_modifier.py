@@ -132,7 +132,7 @@ def read_metadata(file_name: str) -> dict:
 # -------------------------
 # Function write_metadata()
 # -------------------------
-def write_metadata(old_file_name: str, new_file_name: str, metadata: dict):
+def write_metadata(old_file_name: str, new_file_name: str, metadata: dict) -> int:
     '''Creates a new .safetensor file from given and modified file content and
     writes it with the modified metadata into a new file.
 
@@ -186,7 +186,7 @@ def write_metadata(old_file_name: str, new_file_name: str, metadata: dict):
 # +++++++++++++++++++++
 def on_ui_tabs():
     '''Method on_ui_tabs()'''
-    def get_file_tag_name(fn):
+    def get_file_name(fn):
         tag = "ss_output_name"
         basename = Path(fn).stem
         fp = _lora_dict.get(fn)
@@ -218,7 +218,7 @@ def on_ui_tabs():
                                   label="Selected filename without extension")
             write_button = gr.Button(value="Write")
             update_button = gr.Button(value="Update")
-            input_file.input(fn=get_file_tag_name,
+            input_file.input(fn=get_file_name,
                              inputs=[input_file],
                              outputs=[filename])
         # Create a new row.
@@ -243,7 +243,7 @@ def on_ui_tabs():
                 outputs=[]
             )
             update_button.click(
-                get_file_tag_name, inputs=[input_file], outputs=[filename]
+                get_file_name, inputs=[input_file], outputs=[filename]
             )
             update_button.click(
                 read_lora_metadata, inputs=[input_file], outputs=[json_output]
