@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''sd-webui-lora_metadata_writer
+'''sd-webui-lora_metadata_modifier
 
 Extension for AUTOMATIC1111.
 
@@ -214,6 +214,7 @@ def on_ui_tabs():
             filename = gr.Textbox(value="", lines=1, render=True,
                                   interactive=False, inputs=None, info="",
                                   label="Selected filename without extension")
+            write_button = gr.Button(value="Write")
             update_button = gr.Button(value="Update")
             input_file.input(fn=get_file_tag_name,
                              inputs=[input_file],
@@ -231,14 +232,14 @@ def on_ui_tabs():
                 src_path = _lora_dict.get(src)
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
-                print(type(metadata))    
-                print(metadata)
+                #print(type(metadata))    
+                #print(metadata)
                 json_object = json.loads(metadata)
-                print(type(json_object))
-                print(json_object)
+                #print(type(json_object))
+                #print(json_object)
                 write_metadata(dst_path, src_path, json_object)
                 return []
-            update_button.click(
+            write_button.click(
                 adjust_metadata,
                 inputs=[input_file, json_output],
                 outputs=[]
