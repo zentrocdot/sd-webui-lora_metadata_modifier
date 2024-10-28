@@ -240,6 +240,7 @@ def on_ui_tabs():
                 key1 = "ss_tag_frequency"
                 temp_value = json_object.get(key1)
                 temp_value = json.dumps(temp_value)
+                print(temp_value)
                 json_object.update({key1:temp_value})
                 print(json_object)
                 # Workaround end for a Rust error   
