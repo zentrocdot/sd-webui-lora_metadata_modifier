@@ -3,7 +3,7 @@
 
 Extension for AUTOMATIC1111.
 
-Version 0.0.0.3
+Version 0.0.0.1
 '''
 # pylint: disable=invalid-name
 # pylint: disable=import-error
@@ -219,8 +219,9 @@ def on_ui_tabs():
         basename = Path(fn).stem
         fp = _lora_dict.get(fn)
         metadata = read_metadata(fp)
-        outputname = metadata.get(tag)
-        return [basename, outputname]
+        #outputname = metadata.get(tag)
+        #return [basename, outputname]
+        return basename
     # Create a new block.
     with gr.Blocks(analytics_enabled=False) as ui_component:
         # Create a new row.
@@ -260,7 +261,7 @@ def on_ui_tabs():
             update_button.click(
                 get_file_tag_name,
                 inputs=[input_file],
-                outputs=[filename, outputname]
+                outputs=[filename]
             )
             update_button.click(
                 read_lora_metadata,
