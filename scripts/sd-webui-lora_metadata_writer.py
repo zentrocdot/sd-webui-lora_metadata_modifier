@@ -269,7 +269,7 @@ def on_ui_tabs():
             #    outputs=[json_output]
             #)
             update_button.click(
-                [get_file_tag_name, read_lora_metadata]
+                [get_file_tag_name, read_lora_metadata],
                 inputs=[input_file, input_file],
                 outputs=[filename, json_output]
             )
