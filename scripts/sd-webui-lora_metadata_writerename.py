@@ -232,6 +232,7 @@ def on_ui_tabs():
             sort_fw_bw = gr.Radio(choices=["Forward", "Backward"], value="Forward",
                                   label="Sorting Direction", info="",
                                   scale=2, min_width=50)
+            
             def change_sort_fw_bw(rb_state):
                 global _SortDir
                 _SortDir = False
@@ -245,9 +246,9 @@ def on_ui_tabs():
             filename = gr.Textbox(value="", lines=1, render=True,
                                   interactive=False, inputs=None, info="",
                                   label="Selected filename without extension")
-            outputname = gr.Textbox(value="", lines=1, render=True,
-                                    interactive=False, inputs=None, info="",
-                                    label="Filename without extension from metadata")
+            #outputname = gr.Textbox(value="", lines=1, render=True,
+            #                        interactive=False, inputs=None, info="",
+            #                        label="Filename without extension from metadata")
             update_button = gr.Button(value="Update")
             input_file.input(fn=get_file_tag_name,
                              inputs=[input_file],
