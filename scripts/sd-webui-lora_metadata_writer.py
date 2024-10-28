@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''sd-webui-adjust_lora_filename
+'''sd-webui-lora_metadata_writer
 
 Extension for AUTOMATIC1111.
 
