@@ -217,7 +217,7 @@ def on_ui_tabs():
                                   interactive=False, inputs=None, info="",
                                   label="Selected filename without extension")
             write_button = gr.Button(value="Write")
-            update_button = gr.Button(value="Update")
+            update_button = gr.Button(value="Reload")
             input_file.input(fn=get_file_name,
                              inputs=[input_file],
                              outputs=[filename])
