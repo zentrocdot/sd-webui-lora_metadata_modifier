@@ -231,6 +231,7 @@ def on_ui_tabs():
                 src_path = _lora_dict.get(src)
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
+                print(metadata)
                 write_metadata(dst_path, src_path, metadata)
                 return []
             update_button.click(
