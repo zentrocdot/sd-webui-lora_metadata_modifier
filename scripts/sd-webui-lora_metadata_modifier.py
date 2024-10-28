@@ -191,8 +191,6 @@ def on_ui_tabs():
     '''Method on_ui_tabs()'''
     def get_file_name(fn):
         basename = Path(fn).stem
-        #fp = _lora_dict.get(fn)
-        #metadata = read_metadata(fp)
         return basename
     # Create a new block.
     with gr.Blocks(analytics_enabled=False) as ui_component:
@@ -257,7 +255,7 @@ def on_ui_tabs():
                 outputs=[json_output]
             )
     # Return UI data.
-    return [(ui_component, "Write LoRA Metadata", "write_lora_metadata_tab")]
+    return [(ui_component, "Modify LoRA Metadata", "modify_lora_metadata_tab")]
 
 # Invoke a callback function.
 script_callbacks.on_ui_tabs(on_ui_tabs)
