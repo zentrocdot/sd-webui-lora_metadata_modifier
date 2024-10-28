@@ -179,6 +179,7 @@ def write_metadata(old_file_name: str, new_file_name: str, metadata: dict):
     # Return the return code.
     return return_code
 
+'''
 # --------------------------
 # Function change_metadata()
 # --------------------------
@@ -205,6 +206,7 @@ def change_metadata(old_filename: str, new_filename: str, value: str) -> None:
         print("Old size:", os.path.getsize(new_filename))
     # Return None
     return None
+'''
 
 # +++++++++++++++++++++
 # Function on_ui_tabs()
@@ -258,7 +260,7 @@ def on_ui_tabs():
                 src_path = _lora_dict.get(src)
                 dst_path = ''.join([src_path, ".bak"])
                 shutil.copyfile(src_path, dst_path)
-                change_tag(dst_path, src_path, tag)
+                write_metadata(dst_path, src_path, metadata)
                 return []
             update_button.click(
                 adjust_metadata,
