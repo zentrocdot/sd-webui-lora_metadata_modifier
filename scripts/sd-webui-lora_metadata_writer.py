@@ -260,7 +260,7 @@ def on_ui_tabs():
             )
             update_button.click(
                 get_file_tag_name,
-                inputs=input_file,
+                inputs=[input_file],
                 outputs=[filename]
             )
             update_button.click(
