@@ -219,8 +219,6 @@ def on_ui_tabs():
         basename = Path(fn).stem
         fp = _lora_dict.get(fn)
         metadata = read_metadata(fp)
-        #outputname = metadata.get(tag)
-        #return [basename, outputname]
         return basename
     # Create a new block.
     with gr.Blocks(analytics_enabled=False) as ui_component:
