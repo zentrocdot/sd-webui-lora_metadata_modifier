@@ -240,12 +240,12 @@ def on_ui_tabs():
                 json_object = json.loads(metadata)
                 print(json_object, "\n")
                 # Workaround start for a Rust error.                
-                key1 = "ss_tag_frequency"
-                temp_value = json_object.get(key1)
-                temp_value = json.dumps(temp_value)
-                print(temp_value, "\n")
-                json_object.update({key1:temp_value})
-                print(json_object, "\n")
+                #key1 = "ss_tag_frequency"
+                #temp_value = json_object.get(key1)
+                #temp_value = json.dumps(temp_value)
+                #print(temp_value, "\n")
+                #json_object.update({key1:temp_value})
+                #print(json_object, "\n")
                 # Workaround end for a Rust error.   
                 retcode = write_metadata(dst_path, src_path, json_object)
                 if retcode == 0:
