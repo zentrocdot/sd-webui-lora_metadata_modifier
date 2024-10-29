@@ -9,6 +9,11 @@
 
 <p align="justify">to-do ...</p>
 
+# Motivation
+
+<p align="justify">There exists a Extension which in principle does, what I need. Unfortunatly the Extension is not working and the modified metadata leads to a corrupt LoRA model. Based on my knowledge I decided to write a Extension on my own, with the intention, that I can use it in my daily work.</p>
+
+
 ## What the Extension Does
 
 <p align="justify">One can select a LoRA file from a dropdown menu. Sorting is possible in alphabetical forward and backward direction. The selected filename without extension is shown in a textbox. In parallel the JSON data is shown in textbox underneath.</p>
