@@ -1,26 +1,21 @@
 # sd-webui-lora_metadata_writer
 #### :arrow_right: Extension for the AUTOMATIC1111 Web UI
 
-<p align="justify">sd-webui-lora_metadata_writer is an <i>Extension</i> for the <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111</a>, which is adding the new functionality for modifying LoRA metadata to the AUTOMATIC1111 web UI.</p>
+<p align="justify">sd-webui-lora_metadata_writer is an <i>Extension</i> for the <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111</a>, which is adding the new functionality for modifying LoRA metadata to the <i>AUTOMATIC1111</i> web UI.</p>
 
 ---
 
 # Preface
 
-<p align="justify">to-do ...</p>
-
-# Motivation
-
-<p align="justify">There exists a Extension which in principle does, what I need. Unfortunatly the Extension is not working and the modified metadata leads to a corrupt LoRA model. Based on my knowledge I decided to write a Extension on my own, with the intention, that I can use it in my daily work.</p>
-
+<p align="justify">There is an <i>Extension</i> that basically does what I need. Unfortunately, the <i>Extension</i> does not work and the changed metadata leads to a faulty LoRA model. Based on my current knowledge, I decided to write an <i>Extension</i> myself with the intention of using it in my daily work.</p>
 
 ## What the Extension Does
 
-<p align="justify">One can select a LoRA file from a dropdown menu. Sorting is possible in alphabetical forward and backward direction. The selected filename without extension is shown in a textbox. In parallel the JSON data is shown in textbox underneath.</p>
+<p align="justify">The functionality of the <i>Extension</i> can be used when the <i>Modify LoRA Metadata</i> tab is opened. The usage of the <i>Extension</i> is straight forward. One can select a LoRA file from a dropdown menu. Sorting is possible in alphabetical forward and backward order. The selected filename without extension is shown in a text field. In parallel the JSON data is shown in text box underneath.</p>
 
 <a target="_blank" href=""><img src="./images/metadata_modifier.png" alt="button panel"></a>
 
-<i>Figure 1: Opened tab of extension</i>
+<i>Figure 1: Opened tab of the Extension</i>
 
 # Known Bugs
 
