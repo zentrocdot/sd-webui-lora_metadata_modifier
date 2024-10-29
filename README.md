@@ -13,9 +13,15 @@
 
 <p align="justify">to-do ...</p>
 
+<p align="justify">One can select a LoRA file from a dropdown menu. Sorting is possible in alphabetical forward and backward direction. The selected filename without extension is shown in a textbox. In parallel the JSON data is shown in textbox underneath.</p>
+
+<a target="_blank" href=""><img src="./images/metadata_modifier.png" alt="button panel"></a>
+
+<i>Figure 1: Opened panel of extension</i>
+
 # Known Bugs
 
-<p align="justify">to-do ...</p>
+<p align="justify">No bugs known yet.</p>
 
 ## Development and Test Environment
 
@@ -34,5 +40,7 @@
 [2] https://github.com/AUTOMATIC1111/stable-diffusion-webui-extensions
 
 [3] https://www.gradio.app/docs/gradio/interface
+
+[4] https://civitai.com/articles/8434/automatic1111-lora-extension-modify-metadata
 
 
