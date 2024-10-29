@@ -15,7 +15,7 @@
 
 <a target="_blank" href=""><img src="./images/metadata_modifier.png" alt="button panel"></a>
 
-<i>Figure 1: Opened panel of extension</i>
+<i>Figure 1: Opened tab of extension</i>
 
 # Known Bugs
 
